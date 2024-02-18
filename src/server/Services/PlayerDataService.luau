@@ -36,7 +36,6 @@ function Shared.OnStart()
     end
 
     task.spawn(function()
-        task.wait(2)
         while true do
             for _, player in Players:GetPlayers() do
                 Store.updateBalance(tostring(player.UserId), "coins", 1)
@@ -57,9 +56,10 @@ function Local.SetupLeaderstats(player: Player)
     local gems = Instance.new("NumberValue", leaderstats)
     gems.Name = "Gems"
 
-    local unsubscribe = Store:subscribe(Selectors.SelectPlayerData(tostring(player.UserId)), function(data)
-        coins.Value = data.balance.coins or 0
-        gems.Value = data.balance.gems or 0
+    local selector = Selectors.SelectPlayerBalance(tostring(player.UserId))
+    local unsubscribe = Store:subscribe(selector, function(balance)
+        coins.Value = balance.coins or 0
+        gems.Value = balance.gems or 0
     end)
     Players.PlayerRemoving:Connect(function(leavingPlayer: Player)
         if leavingPlayer == player then
@@ -69,7 +69,7 @@ function Local.SetupLeaderstats(player: Player)
 end
 
 function Local.CreateProfile(player: Player)
-    local profile = Local.ProfileStore:LoadProfileAsync(`Player_${player.UserId}`)
+    local profile = Local.ProfileStore:LoadProfileAsync(`Player_{player.UserId}`)
     if not profile then return end
 
     profile:ListenToRelease(function()
@@ -85,7 +85,8 @@ function Local.CreateProfile(player: Player)
     Store.loadPlayerData(tostring(player.UserId), profile.Data)
     Local.SetupLeaderstats(player)
 
-    local unsubscribe = Store:subscribe(Selectors.SelectPlayerData(tostring(player.UserId)), function(playerData)
+    local selector = Selectors.SelectPlayerData(tostring(player.UserId))
+    local unsubscribe = Store:subscribe(selector, function(playerData)
         if playerData then
             profile.Data = playerData
         end
