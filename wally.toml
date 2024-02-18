@@ -1,0 +1,19 @@
+[package]
+name = "monzter-dev/game-template"
+version = "1.0.0"
+registry = "https://github.com/UpliftGames/wally-index"
+realm = "shared"
+
+[dependencies]
+Net = "vorlias/net@3.0.7"
+Signal = "sleitnick/signal@2.0.1"
+T = "osyrisrblx/t@3.1.1"
+Reflex = "littensy/reflex@4.3.1"
+Sift = "csqrl/sift@0.0.8"
+
+# React = "core-packages/react@0.0.1"
+# React-Reflex = "littensy/react-reflex@0.3.3"
+
+[server-dependencies]
+ProfileService = "grilme99/profileservice@1.0.0"
+Cmdr = "evaera/cmdr@1.12.0"

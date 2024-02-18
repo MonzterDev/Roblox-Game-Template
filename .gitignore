@@ -1,0 +1,11 @@
+# Project place file
+/Roblox-Game-Template.rbxlx
+
+# Roblox Studio lock files
+/*.rbxlx.lock
+/*.rbxl.lock
+
+/Packages/
+/ServerPackages/
+/sourcemap.json
+/*.lock
