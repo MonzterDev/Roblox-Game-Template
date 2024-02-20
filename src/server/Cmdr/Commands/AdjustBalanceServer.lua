@@ -1,10 +1,15 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local ServerScriptService = game:GetService("ServerScriptService")
 
-local Store = require(ServerScriptService.Store)
 local PlayerData = require(ReplicatedStorage.Configs.PlayerData)
+local PlayerDataService = require(ServerScriptService.Services.PlayerDataService)
 
 return function (context, currency: PlayerData.Currency, amount: number, player: Player?)
     player = if player then player else context.Executor
-    Store.updateBalance(tostring(player.UserId), currency, amount)
+    local updateBalance: PlayerDataService.UpdateDataAction = {
+        action = "UpdateBalance",
+        currency = currency,
+        amount = amount
+    }
+    PlayerDataService.UpdateState(player, updateBalance)
 end

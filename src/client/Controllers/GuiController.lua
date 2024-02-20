@@ -10,4 +10,8 @@ Shared.Guis = {
     Currency = PlayerGui:WaitForChild("Currency"),
 }
 
+function Shared.OnStart()
+
+end
+
 return Shared
