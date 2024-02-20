@@ -5,7 +5,7 @@ local Reflex = require(ReplicatedStorage.Packages.Reflex)
 local Slices = require(ReplicatedStorage.Store.Slices)
 local PlayersSlice = require(ReplicatedStorage.Store.Slices.Players)
 
-local function SelectPlayerBalance(playerId: string)
+local function SelectPlayerBalances(playerId: string)
     return function(state: Slices.SharedState)
         return state.players.balance[playerId]
     end
@@ -13,10 +13,12 @@ end
 
 local function SelectPlayerData(playerId: string)
     return Reflex.createSelector(
-        SelectPlayerBalance(playerId),
+        SelectPlayerBalances(playerId),
 
         function(balance: PlayersSlice.PlayerBalance?): PlayersSlice.PlayerData?
-            if not balance then return end
+            if not balance then
+                return
+            end
 
             return {
                 balance = balance
@@ -26,6 +28,6 @@ local function SelectPlayerData(playerId: string)
 end
 
 return {
-    SelectPlayerBalance = SelectPlayerBalance,
+    SelectPlayerBalance = SelectPlayerBalances,
     SelectPlayerData = SelectPlayerData,
 }

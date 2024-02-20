@@ -10,10 +10,7 @@ local function broadcasterMiddleware()
 	local start = Remotes.Server:Get("start") :: Net.ServerListenerEvent
 
 	local broadcaster = Reflex.createBroadcaster({
-		producers = {
-			players = Slices.players.playersSlice
-		},
-
+		producers = Slices,
 		dispatch = function(player, actions)
 			broadcast:SendToPlayer(player, actions)
 		end

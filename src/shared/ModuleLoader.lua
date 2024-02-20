@@ -29,5 +29,12 @@ return function()
 			local module = ModuleDirectory:WaitForChild(child.Name)
 			RequireModule(module)
 		end
+
+		local guiFolder = StarterPlayerScripts.Controllers:FindFirstChild("Guis")
+		if guiFolder then
+			for _, child in guiFolder:GetChildren() do
+				RequireModule(child)
+			end
+		end
 	end
 end

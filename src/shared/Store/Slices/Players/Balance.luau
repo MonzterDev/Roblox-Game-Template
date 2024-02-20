@@ -20,16 +20,16 @@ export type BalanceActions = {
 local initialState: BalanceState = {}
 
 local balanceSlice: BalanceProducer = Reflex.createProducer(initialState, {
-    loadPlayerData = function(state, id: string, data: PlayerData.PlayerData)
-        return Sift.Dictionary.set(state, id, data.balance)
+    loadPlayerData = function(state, playerId: string, data: PlayerData.PlayerData)
+        return Sift.Dictionary.set(state, playerId, data.balance)
     end,
 
-    closePlayerData = function(state, id: string)
-        return Sift.Dictionary.removeKey(state, id)
+    closePlayerData = function(state, playerId: string)
+        return Sift.Dictionary.removeKey(state, playerId)
     end,
 
-    updateBalance = function(state, id: string, currency: PlayerData.Currency, amount: number)
-        return Sift.Dictionary.update(state, id, function(balance: PlayerData.PlayerBalance)
+    updateBalance = function(state, playerId: string, currency: PlayerData.Currency, amount: number)
+        return Sift.Dictionary.update(state, playerId, function(balance: PlayerData.PlayerBalance)
             if not balance then
                 return
             end

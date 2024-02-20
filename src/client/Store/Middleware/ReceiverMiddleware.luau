@@ -9,7 +9,7 @@ local function receiverMiddleware()
 	local broadcast = Remotes.Client:Get("broadcast") :: Net.ClientListenerEvent
 
 	local receiver = Reflex.createBroadcastReceiver({
-		start = function(): ()
+		start = function()
 			start:SendToServer()
 		end,
 	})

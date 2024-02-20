@@ -1,7 +1,8 @@
 export type Currency = "coins" | "gems"
 
 export type PlayerBalance = {
-    [Currency]: number
+    coins: number,
+    gems: number,
 }
 
 export type PlayerData = {
