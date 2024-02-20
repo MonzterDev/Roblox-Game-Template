@@ -1,5 +1,5 @@
 [package]
-name = "monzter-dev/game-template"
+name = "monzter-dev/game-template-standard"
 version = "1.0.0"
 registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
@@ -11,6 +11,8 @@ T = "osyrisrblx/t@3.1.1"
 Reflex = "littensy/reflex@4.3.1"
 Sift = "csqrl/sift@0.0.8"
 
+# formatnumber = "kumarion/formatnumber@0.0.1"
+# viewportfitter = "legendoj1/viewportfitter@1.0.1"
 # React = "core-packages/react@0.0.1"
 # React-Reflex = "littensy/react-reflex@0.3.3"
 
