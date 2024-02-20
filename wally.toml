@@ -1,5 +1,5 @@
 [package]
-name = "monzter-dev/game-template"
+name = "monzter-dev/game-template-simple"
 version = "1.0.0"
 registry = "https://github.com/UpliftGames/wally-index"
 realm = "shared"
