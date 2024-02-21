@@ -15,12 +15,12 @@ I've also created another version for [TypeScript](https://github.com/MonzterDev
 
 I've created two versions which are seperated using branches.
 
-### Simple
+### Simple (Current)
 The simple version is tailored towards the common Roblox developer.
 - Uses a *simpler* method of managing state.
 - Uses guis made inside of Roblox Studio, rather than React.
 
-### Standard
+### [Standard](https://github.com/MonzterDev/Roblox-Game-Template/)
 The standard version is tailor towards slightly more advanced developers.
 - Uses Reflex to manage state.
 - Uses React for creating guis.
