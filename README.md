@@ -30,7 +30,7 @@ The standard version is tailor towards slightly more advanced developers.
 ### Game File 📁
 You can easily grab a copy of this template and hop directly into Roblox Studio to begin your next project by doing the following:
 
-1. Visit the [releases page](https://github.com/MonzterDev/Roblox-TS-Template/releases).
+1. Visit the [releases page](https://github.com/MonzterDev/Roblox-Game-Template/releases).
 2. Locate the **Assets** section towards the bottom.
 3. Download either of the `.RBXL` game files.
 4. Open the game file to launch into Roblox Studio.
