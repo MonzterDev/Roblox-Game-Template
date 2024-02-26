@@ -8,33 +8,27 @@ local IsServer = RunService:IsServer()
 local RootDirectory = if IsServer then ServerScriptService else Players.LocalPlayer:WaitForChild("PlayerScripts")
 local ModuleDirectory = if IsServer then RootDirectory.Services else RootDirectory:WaitForChild("Controllers")
 
-local function RequireModule(moduleScript: Instance)
-	if moduleScript:IsA("ModuleScript") then
-		local import = require(moduleScript)
+local function RequireModule(module: ModuleScript)
+    if not module:IsA("ModuleScript") then
+        return
+    end
 
-		local onStart = import.OnStart
-		if onStart then
-			onStart()
-		end
-	end
+    local import = require(module)
+
+    local onStart = import.OnStart
+    if onStart then
+        onStart()
+    end
 end
 
 return function()
-	if IsServer then
-		for _, child in ModuleDirectory:GetChildren() do
-			RequireModule(child)
-		end
-	else
-		for _, child in StarterPlayerScripts.Controllers:GetChildren() do
-			local module = ModuleDirectory:WaitForChild(child.Name)
-			RequireModule(module)
-		end
+    for _, descendant: ModuleScript in ModuleDirectory:GetDescendants() do
+        RequireModule(descendant)
+    end
 
-		local guiFolder = StarterPlayerScripts.Controllers:FindFirstChild("Guis")
-		if guiFolder then
-			for _, child in guiFolder:GetChildren() do
-				RequireModule(child)
-			end
-		end
-	end
+    if not IsServer then
+        ModuleDirectory.DescendantAdded:Connect(function(descendant: ModuleScript)
+            RequireModule(descendant)
+        end)
+    end
 end
