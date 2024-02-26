@@ -55,14 +55,14 @@ Follow these steps to setup the project:
 - [ProfileService](https://github.com/MadStudioRoblox/ProfileService/)
 - [Cmdr](https://github.com/evaera/Cmdr/)
 - [Net](https://github.com/roblox-aurora/rbx-net)
-- [Reflex](https://github.com/littensy/reflex)
 - [Format Number](https://devforum.roblox.com/t/311-formatnumber-a-module-for-formatting-numbers/)
-- [React](https://github.com/Roblox/react-lua)
 - [t](https://github.com/osyrisrblx/t)
 - [Signal](https://sleitnick.github.io/RbxUtil/api/Signal/)
-- [Sift](https://github.com/cxmeel/sift)
 - [Viewport Fitter](https://devforum.roblox.com/t/viewportframe-model-fitter/1345611)
-- [React Reflex](https://github.com/littensy/react-reflex)
+- ~~[React](https://github.com/Roblox/react-lua)~~
+- ~~[Reflex](https://github.com/littensy/reflex)~~
+- ~~[React Reflex](https://github.com/littensy/react-reflex)~~
+- ~~[Sift](https://github.com/cxmeel/sift)~~
 
 ## Features 🎮
 
