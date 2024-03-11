@@ -35,7 +35,7 @@ function Shared.OnStart()
 end
 
 function Shared.GetState(): UpdateState.PlayerData
-    while State ~= nil do
+    while State == nil do
         -- We do this to prevent any errors resulting from using our state before it's been set (usually from guis upon starting the game)
         task.wait(0.1)
     end
