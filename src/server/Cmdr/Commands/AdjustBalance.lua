@@ -5,11 +5,6 @@ return {
 	Group = "Admin";
 	Args = {
 		{
-			Type = "player";
-			Name = "Player";
-			Description = "The Player";
-		},
-		{
 			Type = "currency";
 			Name = "Currency";
 			Description = "";
@@ -18,6 +13,12 @@ return {
 			Type = "number";
 			Name = "Amount of Clicks";
 			Description = "The amount of Clicks to add or subtract from the Player";
+		},
+		{
+			Type = "player";
+			Name = "Player";
+			Description = "The Player";
+			Optional = true;
 		},
 	}
 }
