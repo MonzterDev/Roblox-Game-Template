@@ -1,5 +1,5 @@
-local StateController = require(script.Parent.StateController)
-local GuiController = require(script.Parent.GuiController)
+local StateController = require(script.Parent.Parent.StateController)
+local GuiController = require(script.Parent.Parent.GuiController)
 
 local Gui = GuiController.Guis.Currency
 local Frame = Gui.Frame
