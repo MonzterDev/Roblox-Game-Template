@@ -1,0 +1,58 @@
+{
+    "Singleton": {
+      "prefix": ["controller", "service", "singleton"],
+      "description": "Create a Controller or Service",
+      "body": [
+        "local Local = {}",
+        "local Shared = {}",
+        "",
+        "function Shared.OnStart()",
+        "    $0",
+        "end",
+        "",
+        "return Shared",
+      ]
+    },
+
+    "Advanced Service": {
+      "prefix": ["service-advanced"],
+      "description": "Create an advanced Service",
+      "body": [
+        "local ReplicatedStorage = game:GetService('ReplicatedStorage')",
+        "",
+        "local PlayerDataService = require(script.Parent.PlayerDataService)",
+        "local Remotes = ReplicatedStorage.Remotes",
+        "",
+        "local Local = {}",
+        "local Shared = {}",
+        "",
+        "function Shared.OnStart()",
+        "    $0",
+        "end",
+        "",
+        "return Shared",
+      ]
+    },
+
+    "Advanced Controller": {
+      "prefix": ["controller-advanced"],
+      "description": "Create an advanced Controller",
+      "body": [
+        "local Players = game:GetService('Players')",
+        "",
+        "local Player = Players.LocalPlayer",
+        "",
+        "local GuiController = require(script.Parent.GuiController)",
+        "local StateController = require(script.Parent.StateController)",
+        "",
+        "local Local = {}",
+        "local Shared = {}",
+        "",
+        "function Shared.OnStart()",
+        "    $0",
+        "end",
+        "",
+        "return Shared",
+      ]
+    },
+  }
