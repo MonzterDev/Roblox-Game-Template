@@ -1,22 +1,14 @@
 {
-  "name": "Roblox-Game-Template-Simple",
+  "name": "Roblox-Game-Template-Simple-Studio",
   "tree": {
     "$className": "DataModel",
 
     "ReplicatedStorage": {
-      "$path": "src/shared",
-
-      "Packages": {
-        "$path": "Packages"
-      }
+      "$path": "src/shared"
     },
 
     "ServerScriptService": {
-      "$path": "src/server",
-
-      "Packages": {
-        "$path": "ServerPackages"
-      }
+      "$path": "src/server"
     },
 
     "StarterPlayer": {

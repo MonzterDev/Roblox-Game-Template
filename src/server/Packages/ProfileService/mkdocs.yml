@@ -1,0 +1,28 @@
+site_name: ProfileService
+site_url: https://madstudioroblox.github.io/ProfileService
+repo_name: MadStudioRoblox/ProfileService
+repo_url: https://github.com/MadStudioRoblox/ProfileService
+
+theme:
+  icon:
+    logo: material/database
+    repo: fontawesome/brands/git-alt
+  name: material
+  favicon: images/favicon.png
+  palette:
+    primary: "Deep Purple"
+    accent: "Deep Purple"
+
+nav:
+  - Home: index.md
+  - Tutorial:
+    - Setting up: tutorial/settingup.md
+    - Basic Usage: tutorial/basic_usage.md
+    - Developer Products: tutorial/developer_products.md
+  - Troubleshooting: troubleshooting.md
+  - API: api.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.highlight
+  - pymdownx.superfences
