@@ -5,8 +5,8 @@ local ServerScriptService = game:GetService("ServerScriptService")
 
 local ProfileStore = require(ServerScriptService.Packages.ProfileService)
 local PlayerData = require(ReplicatedStorage.Configs.PlayerData)
-local Remotes = require(ReplicatedStorage.Remotes)
 local UpdateState = require(ReplicatedStorage.Functions.UpdateState)
+local Remotes = ReplicatedStorage.Remotes.PlayerData
 
 local DATASTORE_NAME = "Production"
 
@@ -36,11 +36,11 @@ function Shared.OnStart()
         Local.CreateProfile(player)
     end
 
-    Remotes.Server:Get("Start"):Connect(function(player: Player)
+    Remotes.Start.OnServerEvent:Connect(function(player: Player)
         local profile = Local.Profiles[player.UserId]
         if not profile then return end
 
-        Remotes.Server:Get("SetData"):SendToPlayer(player, profile.Data)
+        Remotes.SetData:FireClient(player, profile.Data)
     end)
 
     task.spawn(function()
@@ -74,7 +74,7 @@ function Shared.UpdateState(player: Player, action: UpdateState.UpdateStateActio
     end
 
     UpdateState(profile.Data, action)
-    Remotes.Server:Get("UpdateData"):SendToPlayer(player, action)
+    Remotes.UpdateData:FireClient(player, action)
 end
 
 function Local.GetState(player: Player): UpdateState.PlayerData?
@@ -112,7 +112,7 @@ function Local.CreateProfile(player: Player)
 
     Local.Profiles[player.UserId] = profile
     Local.SetupLeaderstats(player, profile.Data)
-    Remotes.Server:Get("SetData"):SendToPlayer(player, profile.Data)
+    Remotes.SetData:FireClient(player, profile.Data)
 end
 
 function Local.RemoveProfile(player: Player)

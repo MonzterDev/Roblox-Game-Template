@@ -1,7 +1,7 @@
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 
 local UpdateState = require(ReplicatedStorage.Functions.UpdateState)
-local Remotes = require(ReplicatedStorage.Remotes)
+local Remotes = ReplicatedStorage.Remotes.PlayerData
 
 export type UpdateDataAction = UpdateState.UpdateStateAction
 export type PlayerData = UpdateState.PlayerData
@@ -14,7 +14,7 @@ local Shared = {}
 Shared.UpdateState = Instance.new("BindableEvent")
 
 function Shared.OnStart()
-    Remotes.Client:Get("SetData"):Connect(function(data: UpdateState.PlayerData)
+    Remotes.SetData.OnClientEvent:Connect(function(data: UpdateState.PlayerData)
         if State then
             return
         end
@@ -22,7 +22,7 @@ function Shared.OnStart()
         State = data
     end)
 
-    Remotes.Client:Get("UpdateData"):Connect(function(action: UpdateState.UpdateStateAction)
+    Remotes.UpdateData.OnClientEvent:Connect(function(action: UpdateState.UpdateStateAction)
         if not State then
             return
         end
@@ -31,13 +31,13 @@ function Shared.OnStart()
         Shared.UpdateState:Fire(action, State)
     end)
 
-    Remotes.Client:Get("Start"):SendToServer()
+    Remotes.Start:FireServer()
 end
 
 function Shared.GetState(): UpdateState.PlayerData
     while State == nil do
         -- We do this to prevent any errors resulting from using our state before it's been set (usually from guis upon starting the game)
-        task.wait(0.1)
+        task.wait(0.01)
     end
 
     return State
