@@ -1,8 +1,6 @@
 local Players = game:GetService("Players")
 local ServerScriptService = game:GetService("ServerScriptService")
 local RunService = game:GetService("RunService")
-local StarterPlayer = game:GetService("StarterPlayer")
-local StarterPlayerScripts = StarterPlayer.StarterPlayerScripts
 
 local IsServer = RunService:IsServer()
 local RootDirectory = if IsServer then ServerScriptService else Players.LocalPlayer:WaitForChild("PlayerScripts")
@@ -17,7 +15,7 @@ local function RequireModule(module: ModuleScript)
 
     local onStart = import.OnStart
     if onStart then
-        onStart()
+        task.spawn(onStart)
     end
 end
 
